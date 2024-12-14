@@ -1,15 +1,42 @@
-/* Center the input field and buttons */
+/* Body setup */
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Adjust to top of the screen */
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
     background: url("hulkBg.jpg") no-repeat center center fixed;
     background-size: cover;
+    overflow: hidden;
+    margin: 0; /* Remove default body margin */
 }
 
+/* Main title styling */
+.main {
+    position: absolute;  /* Absolute positioning to position relative to the body */
+    top: 0;              /* Align it to the top */
+    left: 50%;           /* Align it horizontally in the center */
+    transform: translateX(-50%);  /* Center it properly */
+    height: 20vh;         /* Set the height to 1/5 of the screen height */
+    display: flex;
+    justify-content: center;   /* Center text horizontally */
+    align-items: center;      /* Center text vertically */
+    font-size: 4rem;          /* Adjust the font size */
+    color: #333;
+    z-index: 10;  /* Ensure the title stays on top */
+}
+
+/* Wrapper for content below the title */
+#content {
+    margin-top: 25vh; /* This pushes the content below the title */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input and button styling */
 input {
     padding: 10px;
     border-radius: 5px;
@@ -37,6 +64,12 @@ button:hover {
 #heroImage {
     text-align: center;
     margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+#heroImage.show {
+    display: block; /* Show the panel when the class 'show' is added */
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 #heroImage h2 {
@@ -47,9 +80,80 @@ button:hover {
 #heroImage img {
     border-radius: 10px;
     margin: 10px 0;
+    max-width: 300px;
 }
 
 #heroImage p {
     font-size: 18px;
     color: #555;
 }
+
+/* Footer Styling */
+#footer {
+    position: fixed;
+    bottom: 10px; /* Distance from the bottom of the screen */
+    left: 50%;   /* Center horizontally */
+    transform: translateX(-50%); /* Center the footer properly */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+#footer a {
+    color: #00bfff; /* Link color */
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* Panel Styling */
+.panel {
+    max-width: 600px;
+    max-height: 500px; /* Set maximum height */
+    margin: 20px auto;
+    padding: 15px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Disables horizontal scrolling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: none; /* Initially hidden */
+    opacity: 0; /* Initially invisible */
+}
+
+/* Show the panel with animation */
+.panel.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Style for images */
+.panel img {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Fade-in animation for panel */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
