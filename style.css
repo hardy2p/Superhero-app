@@ -11,6 +11,39 @@ body {
     overflow: hidden;
     margin: 0; /* Remove default body margin */
 }
+/* Navbar styling */
+.navbar {
+    position: absolute; /* Fixes navbar to the top */
+    top: 0;             /* Aligns to the very top of the page */
+    left: 0;            /* Aligns to the left */
+    width: 100%;        /* Stretches across the page */
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    backdrop-filter: blur(5px); /* Adds a subtle blur effect */
+    z-index: 1000;      /* Ensures navbar stays on top of other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adds padding for spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  }
+  
+  /* Navbar links */
+  .navbar a {
+    color: #000; /* Text color for links */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+ 
+  .navbar a:hover {
+    color: #007bff; /* Highlight effect for links */
+  }
+  
+  /* HeroStats title adjustment to prevent overlap */
+  
+  
 
 /* Main title styling */
 .main {

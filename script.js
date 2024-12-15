@@ -51,7 +51,7 @@ const getSuperHero = (id) => {
 
         // Set content inside the panel
         panel.innerHTML = `${name} ${image} ${intelligence} ${strength} ${speed} ${fullName} ${firstAppearance} ${publisher} ${connections}`;
-        
+        input.value=`${json.name}`;
         // Show the panel with animation
         panel.classList.add('show');
     })
