@@ -54,6 +54,17 @@ const getSuperHero = (id) => {
         input.value=`${json.name}`;
         // Show the panel with animation
         panel.classList.add('show');
+
+        //From an js lib to change the bg of the app with the newly developed with the dominant color in the image
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.src = json.image.url;
+
+        img.onload = () => {
+            const colorThief = new ColorThief();
+            const dominantColor = colorThief.getColor(img);
+            document.body.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+        };
     })
     .catch(error => {
         panel.innerHTML = `<p>Error: Could not fetch hero details. Please try again.</p>`;
